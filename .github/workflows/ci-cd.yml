@@ -17,14 +17,17 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Build Ionic image
+        shell: cmd
         run: docker build -t ionic-firestore-crud:latest .
 
       - name: Remove previous container
-        run: docker rm -f ionic-firestore-crud-container
+        shell: cmd
+        run: docker rm -f ionic-firestore-crud
         continue-on-error: true
 
       - name: Start updated container
-        run: docker run -d --name ionic-firestore-crud-container --restart unless-stopped -p 8100:8100 ionic-firestore-crud:latest
+        shell: cmd
+        run: docker run -d --name ionic-firestore-crud --restart unless-stopped -p 8100:8100 ionic-firestore-crud:latest
 
       - name: Verify app
         shell: powershell
