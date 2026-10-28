@@ -20,11 +20,11 @@ jobs:
         run: docker build -t ionic-firestore-crud:latest .
 
       - name: Remove previous container
-        run: docker rm -f ionic-firestore-crud
+        run: docker rm -f ionic-firestore-crud-container
         continue-on-error: true
 
       - name: Start updated container
-        run: docker run -d --name ionic-firestore-crud --restart unless-stopped -p 8100:8100 ionic-firestore-crud:latest
+        run: docker run -d --name ionic-firestore-crud-container --restart unless-stopped -p 8100:8100 ionic-firestore-crud:latest
 
       - name: Verify app
         shell: powershell
