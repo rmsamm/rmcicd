@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Add Product</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding product-form-page">
+
+  <div class="product-card">
+    <ion-item lines="none" class="input-wrap">
+      <ion-input
+        label="Product Name"
+        labelPlacement="floating"
+        placeholder="Enter product name"
+        [(ngModel)]="newProduct.productName">
+      </ion-input>
+    </ion-item>
+
+    <div class="two-column">
+      <ion-item lines="none" class="input-wrap">
+        <ion-input
+          label="Price"
+          labelPlacement="floating"
+          type="number"
+          placeholder="Enter price"
+          [(ngModel)]="newProduct.price">
+        </ion-input>
+      </ion-item>
+
+      <ion-item lines="none" class="input-wrap">
+        <ion-input
+          label="Quantity"
+          labelPlacement="floating"
+          type="number"
+          placeholder="Enter quantity"
+          [(ngModel)]="newProduct.quantity">
+        </ion-input>
+      </ion-item>
+    </div>
+
+    <ion-item lines="none" class="input-wrap">
+      <ion-select
+        label="Category"
+        labelPlacement="floating"
+        [(ngModel)]="newProduct.category">
+
+        <ion-select-option value="Bags">Bags</ion-select-option>
+        <ion-select-option value="Hats">Hats</ion-select-option>
+        <ion-select-option value="Decorations">Decorations</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item lines="none" class="input-wrap">
+      <ion-textarea
+        label="Description"
+        labelPlacement="floating"
+        placeholder="Enter product description"
+        [(ngModel)]="newProduct.description">
+      </ion-textarea>
+    </ion-item>
+
+    <ion-button
+      expand="block"
+      class="add-button"
+      (click)="addProduct()">
+
+      <ion-icon name="add-circle-outline" slot="start"></ion-icon>
+      Add Product
+    </ion-button>
+  </div>
+
+</ion-content>

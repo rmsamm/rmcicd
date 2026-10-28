@@ -1,0 +1,133 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-title>
+      Products
+    </ion-title>
+
+  </ion-toolbar>
+
+  <ion-toolbar>
+
+    <ion-searchbar
+      placeholder="Search product..."
+      [(ngModel)]="searchText">
+    </ion-searchbar>
+
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <!-- TASK 3: Refresher -->
+
+  <ion-refresher
+    slot="fixed"
+    (ionRefresh)="refreshProducts($event)">
+
+    <ion-refresher-content
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles">
+    </ion-refresher-content>
+
+  </ion-refresher>
+
+
+  <!-- TASK 3: Segment -->
+
+  <ion-segment
+    [(ngModel)]="selectedCategory">
+
+    <ion-segment-button value="All">
+      <ion-label>All</ion-label>
+    </ion-segment-button>
+
+    <ion-segment-button value="Bags">
+      <ion-label>Bags</ion-label>
+    </ion-segment-button>
+
+    <ion-segment-button value="Hats">
+      <ion-label>Hats</ion-label>
+    </ion-segment-button>
+
+    <ion-segment-button value="Decorations">
+      <ion-label>Decor</ion-label>
+    </ion-segment-button>
+
+  </ion-segment>
+
+
+  <!-- Product List -->
+
+  <ion-list class="product-list">
+
+    <ion-item-sliding
+      *ngFor="let product of filteredProducts">
+
+      <ion-item class="product-item" lines="none">
+
+        <div class="product-badge">
+          {{ product.category }}
+        </div>
+
+        <ion-label>
+
+          <h2>{{ product.productName }}</h2>
+
+          <p class="price">₱{{ product.price }}</p>
+
+          <div class="meta-row">
+            <span>Qty: {{ product.quantity }}</span>
+            <span>{{ product.category }}</span>
+          </div>
+
+          <p class="description">{{ product.description }}</p>
+
+        </ion-label>
+
+
+        <div class="action-group">
+          <ion-button
+            size="small"
+            fill="outline"
+            (click)="updateProduct(product)">
+            Update
+          </ion-button>
+
+          <ion-button
+            size="small"
+            color="danger"
+            fill="outline"
+            (click)="deleteProduct(product.id)">
+            Delete
+          </ion-button>
+        </div>
+
+      </ion-item>
+
+      <ion-item-options side="end">
+        <ion-item-option color="danger" (click)="deleteProduct(product.id)">
+          Delete
+        </ion-item-option>
+      </ion-item-options>
+
+    </ion-item-sliding>
+
+  </ion-list>
+
+
+  <!-- Empty result -->
+
+  <ion-text
+    *ngIf="filteredProducts.length === 0"
+    color="medium">
+
+    <p class="ion-text-center">
+      No products found.
+    </p>
+
+  </ion-text>
+
+</ion-content>

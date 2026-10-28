@@ -1,0 +1,72 @@
+.product-list {
+  background: transparent;
+  padding: 8px 0 24px;
+}
+
+.product-item {
+  --background: rgba(255, 255, 255, 0.9);
+  --border-radius: 18px;
+  margin: 12px 14px;
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+  padding: 10px 12px;
+}
+
+.product-badge {
+  background: #eef2ff;
+  color: #4338ca;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 6px 10px;
+  text-transform: uppercase;
+  margin-right: 12px;
+}
+
+.product-item h2 {
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 4px;
+}
+
+.price {
+  color: #2563eb;
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.meta-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 0.78rem;
+  color: #64748b;
+  margin: 8px 0 4px;
+}
+
+.description {
+  color: #475569;
+  margin-top: 6px;
+  line-height: 1.4;
+}
+
+.action-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-left: 12px;
+}
+
+ion-searchbar {
+  --background: rgba(255, 255, 255, 0.9);
+  --border-radius: 16px;
+  --box-shadow: none;
+}
+
+ion-segment {
+  --background: rgba(255, 255, 255, 0.9);
+  margin: 8px 14px 0;
+  border-radius: 16px;
+}
