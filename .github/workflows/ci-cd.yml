@@ -30,7 +30,7 @@ jobs:
         run: docker run -d --name ionic-firestore-crud-container --restart unless-stopped -p 8100:8100 ionic-firestore-crud:latest
 
       - name: Verify app
-        shell: powershell
+        shell: 'powershell -NoProfile -ExecutionPolicy Bypass -File {0}'
         run: |
           $success = $false
           for ($i = 1; $i -le 15; $i++) {
@@ -43,6 +43,6 @@ jobs:
             }
           }
           if (-not $success) {
-            docker logs ionic-crud
+            docker logs ionic-firestore-crud
             exit 1
           }
